@@ -1,3 +1,3 @@
 variable "admin_password" {
-    
+
 }

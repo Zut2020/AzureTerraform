@@ -62,7 +62,7 @@ resource "azurerm_network_interface" "windows" {
     name                          = "internal"
     subnet_id                     = azurerm_subnet.sn.id
     private_ip_address_allocation = "Dynamic"
-    public_ip_address_id = azurerm_public_ip.windows.id
+    public_ip_address_id          = azurerm_public_ip.windows.id
   }
 }
 
@@ -76,7 +76,7 @@ resource "azurerm_network_interface" "linux" {
     name                          = "internal"
     subnet_id                     = azurerm_subnet.sn.id
     private_ip_address_allocation = "Dynamic"
-    public_ip_address_id = azurerm_public_ip.linux.id
+    public_ip_address_id          = azurerm_public_ip.linux.id
   }
 }
 
@@ -87,7 +87,7 @@ resource "azurerm_windows_virtual_machine" "windows" {
   location            = azurerm_resource_group.rg.location
   size                = "Standard_D2ads_v5"
   admin_username      = "adminuser"
-  admin_password      = "${var.admin_password}"
+  admin_password      = var.admin_password
   network_interface_ids = [
     azurerm_network_interface.windows.id,
   ]
@@ -112,7 +112,7 @@ resource "azurerm_linux_virtual_machine" "example" {
   location            = azurerm_resource_group.rg.location
   size                = "Standard_D2ads_v5"
   admin_username      = "adminuser"
-  admin_password      = "${var.admin_password}"
+  admin_password      = var.admin_password
   network_interface_ids = [
     azurerm_network_interface.linux.id,
   ]
