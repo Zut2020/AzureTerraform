@@ -8,6 +8,14 @@ terraform {
   }
 
   required_version = ">= 1.1.0"
+
+  cloud {
+    organization = "pomposb"
+
+    workspaces {
+      name = "varian-github-actions"
+    }
+  }
 }
 
 provider "azurerm" {
