@@ -114,7 +114,7 @@ resource "azurerm_windows_virtual_machine" "windows" {
 }
 
 #Create the Linux VM
-resource "azurerm_linux_virtual_machine" "example" {
+resource "azurerm_linux_virtual_machine" "linux" {
   name                = "linuxVM"
   resource_group_name = azurerm_resource_group.rg.name
   location            = azurerm_resource_group.rg.location
